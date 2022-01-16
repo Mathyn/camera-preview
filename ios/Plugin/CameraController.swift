@@ -105,7 +105,6 @@ extension CameraController {
             self.photoOutput!.setPreparedPhotoSettingsArray([AVCapturePhotoSettings(format: [AVVideoCodecKey : AVVideoCodecType.jpeg])], completionHandler: nil)
             self.photoOutput?.isHighResolutionCaptureEnabled = self.highResolutionOutput
             if captureSession.canAddOutput(self.photoOutput!) { captureSession.addOutput(self.photoOutput!) }
-            captureSession.startRunning()
         }
 
         func configureDataOutput() throws {
@@ -133,6 +132,8 @@ extension CameraController {
                 try configureDeviceInputs()
                 try configurePhotoOutput()
                 try configureDataOutput()
+
+                captureSession.startRunning()
             }
 
             catch {
