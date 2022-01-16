@@ -132,8 +132,6 @@ extension CameraController {
                 try configureDeviceInputs()
                 try configurePhotoOutput()
                 try configureDataOutput()
-
-                self.captureSession?.startRunning()
             }
 
             catch {
@@ -146,6 +144,8 @@ extension CameraController {
 
             DispatchQueue.main.async {
                 self.updateVideoOrientation()
+
+                self.captureSession?.startRunning()
 
                 completionHandler(nil)
             }
