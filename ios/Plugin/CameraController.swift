@@ -133,7 +133,7 @@ extension CameraController {
                 try configurePhotoOutput()
                 try configureDataOutput()
 
-                captureSession.startRunning()
+                self.captureSession?.startRunning()
             }
 
             catch {
